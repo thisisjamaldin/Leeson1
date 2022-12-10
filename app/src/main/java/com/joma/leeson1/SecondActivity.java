@@ -30,11 +30,8 @@ public class SecondActivity extends AppCompatActivity {
         String result = getIntent().getStringExtra("result");
         textView.setText(result);
 
-        ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
+        ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result1 -> {
 
-            }
         });
 
         imageView.setOnClickListener(view -> {
@@ -42,12 +39,8 @@ public class SecondActivity extends AppCompatActivity {
 //            type image
             launcher.launch(intent);
         });
-        imageView.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-//            type videdwo
-            startActivityForResult(intent, 11);
-        });
 
+        String a = "hello";
 //        imageView.setOnClickListener(null);
 
 //        imageView.setOnClickListener(new View.OnClickListener() {
